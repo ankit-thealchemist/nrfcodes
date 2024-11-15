@@ -7,7 +7,7 @@ manifest:
     - name: nrf
       repo-path: sdk-nrf
       remote: ncs
-      revision: 2.8.0
+      revision: v2.8.0
       import: true
   self:
     path: app
