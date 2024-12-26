@@ -30,7 +30,8 @@ int main(void)
 	/* STEP 7 - Retrieve the API-specific device structure and make sure that the device is
 	 * ready to use  */
 	static const struct i2c_dt_spec bme680 = I2C_DT_SPEC_GET(I2C_BME280);
-	if(!device_is_ready(bme680.bus)) {
+	if(!device_is_ready(bme680.bus)) 
+	{
 		printk("I2C bus %s is not ready\n", bme680.bus->name);
 		return -1;
 	}

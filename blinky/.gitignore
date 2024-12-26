@@ -1,6 +1,68 @@
-# editors
-*.swp
+# Compiled object files
+*.o
+*.obj
+*.a
+*.lib
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.dll
+*.so
+*.dylib
+
+# Dependency files
+*.d
+*.lai
+
+# Executables
+*.exe
+*.out
+*.elf
+*.bin
+*.hex
+
+# Debug Files
+*.dSYM
+*.pdb
+
+# IDE-specific files
+.vscode/
+.idea/
+*.suo
+*.user
+*.sln
+*.vcxproj
+*.cbp
+*.pro
+
+# Generated Files
+*.log
+*.txt
+*.csv
+*.xml
+*.json
 *~
 
-# build
-/build*/
+# Build directories
+build/
+dist/
+out/
+obj/
+lib/
+bin/
+
+# CMake files
+CMakeFiles/
+
+# Doxygen
+*.dot
+*.gv
+*.pdf
+*.html
+*
+# Zephyr specific files
+.config
+zephyr/
