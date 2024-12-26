@@ -1,0 +1,5 @@
+board:
+  name: devnewboard01
+  vendor: BE
+  socs:
+    - name: nrf52833

@@ -37,14 +37,8 @@
 *.vcxproj
 *.cbp
 *.pro
+ 
 
-# Generated Files
-*.log
-*.txt
-*.csv
-*.xml
-*.json
-*~
 
 # Build directories
 build/

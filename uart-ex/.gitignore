@@ -62,7 +62,7 @@ CMakeFiles/
 *.gv
 *.pdf
 *.html
-*
+
 # Zephyr specific files
 .config
 zephyr/

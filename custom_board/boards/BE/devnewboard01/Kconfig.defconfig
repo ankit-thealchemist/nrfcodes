@@ -1,0 +1,6 @@
+if BOARD_DEVNEWBOARD01
+
+config BT_CTLR
+	default BT
+
+endif # BOARD_DEVNEWBOARD01
