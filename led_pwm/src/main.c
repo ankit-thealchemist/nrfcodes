@@ -7,11 +7,13 @@
 #include <stdio.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/pwm.h>
+#include <zephyr/kernel.h>
 
 #define PWM_LED0_NODE DT_ALIAS(pwm_led0)
 
-#define PWM_PERIOD_NS 200000000
-#define PWM_DUTY_CYCLE 14000000
+#define PWM_PERIOD_MS 20
+#define PWM_DUTY_CYCLE_MS 1
+#define SLEEP_TIME_MS 20
 
 static struct pwm_dt_spec pwm_led0 = PWM_DT_SPEC_GET(PWM_LED0_NODE);
 
@@ -26,12 +28,36 @@ int main(void)
 		return 1;
 	}
 
-	rc = pwm_set_dt(&pwm_led0, PWM_MSEC(40), PWM_MSEC(1));
-	if(rc < 0)
+	// below code will provide the glow effect on the LED
+	do
 	{
-		printf("Error: PWM device %s is not ready\n", pwm_led0.dev->name);
-		return 1;
-	}
+
+		int duty_cycle = 0;
+		for (int index = 0; index < 100; index += 4)
+		{
+			duty_cycle = (index * PWM_PERIOD_MS)/100;
+			rc = pwm_set_dt(&pwm_led0, PWM_MSEC(PWM_PERIOD_MS), PWM_MSEC(duty_cycle));
+			if (rc < 0)
+			{
+				printf("Error: PWM device %s is not ready\n", pwm_led0.dev->name);
+				return 1;
+			}
+			k_msleep(SLEEP_TIME_MS);
+		}
+
+		for (int index = 100; index > 0; index -= 4)
+		{
+			duty_cycle = (index * PWM_PERIOD_MS)/100;
+			rc = pwm_set_dt(&pwm_led0, PWM_MSEC(PWM_PERIOD_MS), PWM_MSEC(duty_cycle));
+			if (rc < 0)
+			{
+				printf("Error: PWM device %s is not ready\n", pwm_led0.dev->name);
+				return 1;
+			}
+			k_msleep(SLEEP_TIME_MS);
+		}
+	} while (1);
+	
 
 	printf("PWM device %s is ready\n", pwm_led0.dev->name);
 
