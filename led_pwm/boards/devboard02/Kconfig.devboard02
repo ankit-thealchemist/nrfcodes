@@ -1,8 +1,0 @@
-# DevBoard02 NRF9160 board configuration
-
-# Copyright (c) 2018-2020 Nordic Semiconductor ASA
-# SPDX-License-Identifier: Apache-2.0
-
-config BOARD_DEVBOARD02
-	select SOC_NRF9160_SICA if BOARD_DEVBOARD02_NRF9160 || BOARD_DEVBOARD02_NRF9160_NS
-	select SOC_NRF52840_QIAA if BOARD_DEVBOARD02_NRF52840

@@ -1,7 +1,0 @@
-board:
-  name: devboard9160
-  vendor: BE
-  socs:
-  - name: nrf9160
-    variants:
-    - name: ns
