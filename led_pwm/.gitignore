@@ -41,7 +41,7 @@
 
 
 # Build directories
-build/
+build*/
 dist/
 out/
 obj/

@@ -1,0 +1,21 @@
+# Copyright (c) 2021 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+# NOTE: This file is replicated in devboard02_nrf9160 and devboard02_nrf52840.
+#       Any changes should be done in both instances.
+
+description: GPIO used to reset nRF52840 on DevBoard02
+
+compatible: "nordic,devboard02-nrf52840-reset"
+
+include: base.yaml
+
+properties:
+  status:
+    required: true
+
+  gpios:
+    type: phandle-array
+    required: true
+    description: |
+      GPIO to use as nRF52840 reset line: output in nRF9160, input in nRF52840.
