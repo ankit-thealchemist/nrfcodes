@@ -1,0 +1,22 @@
+description: PWM-driven servo motor.
+
+compatible: "pwm-servos"
+
+include: base.yaml
+
+child-binding:
+  properties:
+    pwms:
+      required: true
+      type: phandle-array
+      description: PWM channel configurationspecifier driving the servo motor.
+
+    min-pulse:
+      required: true
+      type: int
+      description: Minimum pulse width (nanoseconds).
+
+    max-pulse:
+      required: true
+      type: int
+      description: Maximum pulse width (nanoseconds).
